@@ -12,7 +12,7 @@ and an adjustable tightness of fit (shown at 3ʳᵈ order):
 
 It also supports a curve of any dimensionality.
 
-Performs weighted linear regression around each output point to produce the next point on a curve. The weights are Gaussian weights, the standard deviation σ can be used to control the closeness of the fit.
+Performs weighted polynomial regression around each output point to produce the next point on a curve. The weights are Gaussian weights, the standard deviation σ can be used to control the closeness of the fit.
 
 ## Complexity
 
