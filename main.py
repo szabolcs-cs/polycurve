@@ -69,15 +69,15 @@ for i in range(1, 6):
     ax.plot(Y[:, 0], Y[:, 1], c=colors[i], label=f"order {i}")
 ax.legend()
 ax.set_aspect("equal")
-# plt.savefig('orders.svg', dpi=300)
+plt.savefig('orders.svg', dpi=300)
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.scatter(data[:, 0], data[:, 1], c=colors[0], label="data")
 for i in range(4):
     Y = fit_curve(data, density=100, order=3, σ=0.5 + 0.2 * i)
-    ax.plot(Y[:, 0], Y[:, 1], c=colors[i + 1], label=f"stddev {50+20*i}")
+    ax.plot(Y[:, 0], Y[:, 1], c=colors[i + 1], label=f"stddev {0.5 + 0.2 * i}")
 ax.legend()
 ax.set_aspect("equal")
-# plt.savefig('fit.svg', dpi=300)
+plt.savefig('fit.svg', dpi=300)
 plt.show()

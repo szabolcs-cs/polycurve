@@ -2,11 +2,11 @@
 
 ## Summary
 
-An algorithm that can fit a polynomial curve to noisy points. It supports any polynomial order:
+An algorithm that can fit a polynomial curve to noisy points. It supports any polynomial order (1=linear, 2=quadratic, etc.):
 
 ![Polynomial orders 1-5](orders.svg)
 
-and an adjustable tightness of fit:
+and an adjustable tightness of fit (shown at 3ʳᵈ order):
 
 ![3ʳᵈ order curve with differing closeness](fit.svg)
 
