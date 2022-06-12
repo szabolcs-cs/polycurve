@@ -20,11 +20,13 @@ The code is unoptimised. Each of $M$ output points is produced using a convoluti
 
 ## Details
 
-For each output point the following computation is performed:
+For each output point $p$ the following computation is performed:
 
 $$ p = x_q(XᵀX)⁻¹XᵀY $$
 
 where the moment matrices $XᵀX$ and $XᵀY$ were both produced as a Gaussian weighted average of moments from the output point's neighbourhood (neighbourhood within the data array).
+
+$x_q$ is a vector of 2 elements used to compute a point of the curve at the given coordinates. $x_q=\{1,t\}$ where $t$ is the coordinate along the curve, typically from the $[0,1]$ interval.
 
 $X$ has 2 dimensions, a constant 1 and a coordinate on a curve ranging from 0 to 1. For example for 6 output points on the curve:
 
