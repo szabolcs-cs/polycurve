@@ -13,3 +13,8 @@ __pycache__
 
 # Local History for Visual Studio Code
 .history/
+
+
+# test files
+*.csv
+plots.py
