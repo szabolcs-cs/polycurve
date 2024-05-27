@@ -2,17 +2,17 @@
 
 ## Summary
 
-Fits a polynomial curve to noisy points. Similar to LOWESS. It supports any polynomial `order` (1→linear, 2→quadratic, etc.):
+Fits a polynomial curve to noisy points. Similar to LOWESS. It supports any polynomial `degree` (1→linear, 2→quadratic, etc.):
 
-![Polynomial orders 1-5](orders.svg)
+![Polynomial degrees 1-5](degrees.svg)
 
-and an adjustable tightness of fit (shown at 3ʳᵈ order):
+and an adjustable tightness of fit (shown at 3ʳᵈ degree):
 
-![3ʳᵈ order curve with differing closeness](fit.svg)
+![3ʳᵈ degree curve with differing closeness](fit.svg)
 
 It also supports a curve of any dimension, specified through `Y`.
 
-Performs weighted polynomial regression around each output point to produce a point on a curve. The weights are Gaussian weights, the standard deviation `σ` can be used to control the closeness of fit.
+Performs weighted polynomial regression around each output point to produce a point on a curve. Uses Gaussian weighting, the standard deviation `σ` can be used to control the closeness of fit.
 
 ## Details
 
@@ -22,9 +22,9 @@ $$ p = x_q(XᵀX)⁻¹XᵀY $$
 
 where the moment matrices $XᵀX$ and $XᵀY$ were both produced as a Gaussian weighted average of moments from $p$'s neighbourhood within the input data.
 
-The query vector $x_q$ is a vector of $N$ elements used to compute a point of the curve at the given coordinates. $x_q=\{1,t\}$ where $t$ is the coordinate along the curve, typically from the $[0,1]$ interval.
+The query vector $x_q$ is a vector of $N$ elements used to compute a point of the curve at the given $N$-dimensional coordinates. $x_q=\{1,t\}$ where $t$ is the coordinate along the curve, typically from the $[0,1]$ interval.
 
-$X$ has $N+1$ dimensions for an $N$ᵗʰ order polynomial curve. For example for 6 input points and a 1ˢᵗ order curve $X$ is by default:
+$X$ has $N+1$ dimensions for an $N$ᵗʰ degree polynomial curve. For example for 6 input points and a 1ˢᵗ degree curve $X$ is by default:
 
 $$
 X = \begin{bmatrix}
@@ -55,14 +55,14 @@ $$
 Requirements: `numpy`
 
 ```python
-def fit_curve(Y, resolution=10, order=1, σ=0.8)
+def fit_curve(Y, resolution=10, degree=1, σ=0.8)
 ```
 
 `Y` is the data the curve will be fitted to. It's an M×N array describing M points in N dimensions.
 
 `resolution` controls the resolution of the curve by specifying how many output points to produce on the curve for each input point.
 
-`order` is the order of the polynomial. 1 for locally linear, 2 for locally quadratic, etc.
+`degree` is the degree of the polynomial. 1 for locally linear, 2 for locally quadratic, etc.
 
 `σ` controls the tightness of fit as the standard deviation of the Gaussian to use for blurring the moments. A higher value will produce a smoother curve.
 
