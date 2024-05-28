@@ -18,9 +18,9 @@ Performs weighted polynomial regression around each output point to produce a po
 
 For each output point $p$ we compute:
 
-$$ p = x_q(XᵀX)⁻¹XᵀY $$
+$$ p = x_q(X^\mathsf{T}X)⁻¹X^\mathsf{T}Y $$
 
-where the moment matrices $XᵀX$ and $XᵀY$ were both produced as a Gaussian weighted average of moments from $p$'s neighbourhood within the input data.
+where the moment matrices $X^\mathsf{T}X$ and $X^\mathsf{T}Y$ were both produced as a Gaussian weighted average of moments from $p$'s neighbourhood within the input data.
 
 The query vector $x_q$ is a vector of $N$ elements used to compute a point of the curve at the given $N$-dimensional coordinates. $x_q=\{1,t\}$ where $t$ is the coordinate along the curve, typically from the $[0,1]$ interval.
 
