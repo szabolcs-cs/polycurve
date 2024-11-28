@@ -2,7 +2,7 @@ import numpy as np
 
 def moments(A, B, resolution, σ, axis=0): ##TODO: auto sigma, axis=0
   """
-  Computes moments, stretches them by `resolution` by interleaving zeros, and blurs them with a Gaussian of σ radius.
+  Computes moments, stretches them by `resolution` by interleaving zeros, and blurs them with a Gaussian having σ stddev.
   """
   # TODO: optimise performance of `filter1d_conv` by either reducing kernel size or using an O(1) filter
   data = np.einsum("ij,ik->ijk", A, B) # outer products
@@ -19,7 +19,7 @@ def fit_curve(Y, resolution=10, degree=1, σ=0.1, X=None):
      np.array with dimensions N×M, a list of M-dimensional points. Usually M=1.
   Y: Target dimensions to map to.
      np.array with dimensions N×K, a list of K-dimensional points. Usually K=1 or 2.
-  resolution: int, how many time more points to construct the curve from
+  resolution: int, how many times more points to construct the curve from
   degree: int, the polynomial degree of the fitted curve. 1 for linear, 2 for quadratic, etc.
   σ: float, the standard deviation of the Gaussian kernel relative to teh resolution of the original data points. Lower values mean a curve fitting closer to the data points but a greater likelihood of failing to invert a matrix.
   """
